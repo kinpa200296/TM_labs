@@ -1,0 +1,24 @@
+int a = 42;
+int b = 227;
+string s = "qwerty" + "123456";
+if (a <== b)
+{
+	a = (32 - 21) + (120 - 40);
+    s = "qwerty123";
+}
+else
+{
+	if(b - a >= a + 23)
+	{
+		a = (10 - 25)/5;
+		s = s + "3" + 5;
+	}
+	else{
+		s = "azaza;
+	}
+}
+if (b + a >= a + 23)
+{
+	a = a + 121qwe;
+}
+return s;
