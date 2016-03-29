@@ -1,7 +1,7 @@
 int a = 42;
 int b = 227;
-string s = "qwerty" + "123456";
-if (a <== b)
+string s = "qwerty 12" + "123456";
+if (a <= b)
 {
 	a = (32 - 21) + (120 - 40);
     s = "qwerty123";
@@ -14,11 +14,11 @@ else
 		s = s + "3" + 5;
 	}
 	else{
-		s = "azaza;
+		s = "azaza";
 	}
 }
 if (b + a >= a + 23)
 {
-	a = a + 121qwe;
+	a = a + qwe;
 }
 return s;

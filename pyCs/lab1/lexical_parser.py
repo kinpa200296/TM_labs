@@ -47,7 +47,8 @@ class LexicalParser(object):
             token.line = self.__line_num
             token.column = self.__column_num
             self.__tokens.append(token)
-            self.__cur_token_str = next_char
+
+        self.__cur_token_str = next_char
 
     def __can_connect_special_char(self, c):
         return c == u'<' or c == u'>' or c == u'='
@@ -60,11 +61,24 @@ class LexicalParser(object):
             for line in f:
                 self.__line_num += 1
                 self.__column_num = 0
+                is_parsing_string = False
                 prev_char = u''
                 for char in line:
                     self.__column_num += 1
                     char = unicode(char)
-                    if char == u' ' or char == u'\t' or char == u'\n':
+                    if char == u'\n':
+                        self.__create_token(u'')
+                    elif char == u'\"':
+                        if is_parsing_string:
+                            self.__cur_token_str += char
+                            self.__create_token(u'')
+                            is_parsing_string = False
+                        else:
+                            self.__create_token(char)
+                            is_parsing_string = True
+                    elif is_parsing_string:
+                        self.__cur_token_str += char
+                    elif char == u' ' or char == u'\t':
                         self.__create_token(u'')
                     elif char in self.special_chars:
                         if prev_char in self.special_chars:
